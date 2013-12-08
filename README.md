@@ -1,4 +1,4 @@
-Práctica        : Práctica de Laboratorio #11 - EQUIPO.
+Práctica        : Práctica de Laboratorio #12 - EQUIPO.
 ======================================================
 Grupo           : LPP-T-45.
 Alumnos         : DAILOS HERRERA BENCOMO.
