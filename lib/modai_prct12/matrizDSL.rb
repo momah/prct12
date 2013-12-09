@@ -1,23 +1,33 @@
+require "matrizDispersa"
+require "matrizDensa"
+
 class MatrizDSL
+	
+	
 	attr_accessor :operando, :nombre, :modo, :tipo
   
 	def initialize(name,&block)
-	  self.nombre=name    
-	    
+	  	self.nombre=name    
+	  	self.operando=[]
+	  	self.modo= "consola"
   	end
-  
+  	
+  	def operand(matriz)
+  		self.operando << MatrizDensa.new(matriz)
+  	end 
 
   	def to_s
-     	 
+     		console = nombre
+          	console << " = " 
+          	console << (operando[0] + operando[1]).to_s
+          	console
  	end  
   
-  	def option(mode, type)
-     	  
+  	def option(mode)
+  		self.modo << mode
   	end
   
-  	def operand(matriz)
-     	  
-  	end    
+  	   
   
 end
 
@@ -30,4 +40,4 @@ ejemplo = MatrizDSL.new("suma") do
 	operand [[1,1,1],[1,1,1],[1,1,1]]  
 end
 
-puts ejemplo
+puts ejemplo.to_s
