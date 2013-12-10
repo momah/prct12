@@ -56,6 +56,14 @@ class MatrizDSL < MatrizAbstracta
 
 end
 
+# SUMA
+z = MatrizDSL.new("Densa","Densa")
+
+z.option "+"
+
+z.operand [[1,2],[3,4]]
+z.operand [[221,2],[3,4]]
+
 =begin
 require "matrizDispersa"
 require "matrizDensa"
