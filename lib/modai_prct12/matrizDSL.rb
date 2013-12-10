@@ -6,7 +6,7 @@ class MatrizDSL < MatrizAbstracta
 
                 @op_texto = operacion.to_s
                 
-		# Por defecto la operación será la suma
+		# Por defecto la operación será & para devolver error
 		case @op_texto	
 
 		when "suma"
@@ -50,6 +50,12 @@ class MatrizDSL < MatrizAbstracta
 	#== Definimos la función de ejecución de la operación
         def execute
                 
+                # Comprobamos la validez de la operación
+		if @op = "&"
+			puts "La Operacion no es valida"
+			return 0
+		end
+                
 		# Mostramos las matrices
                 if @matA != nil and @matB != nil
 
@@ -60,8 +66,9 @@ class MatrizDSL < MatrizAbstracta
                         puts "Matriz B: #{@matB}"                
 
                         resultado = @matrizA.to_s + "." + @op.to_s + "("  + " " + @matrizB.to_s + ")"
+			puts "Resultado de la operacion ( " + @op_texto.to_s + " ): "                        
 			resultado = eval(resultado)
-                        puts "Resultado de la operacion ( " + @op_texto.to_s + " ): #{resultado}"
+#                        puts "Resultado de la operacion ( " + @op_texto.to_s + " ): #{resultado}"
 
                 end
                 
@@ -89,51 +96,3 @@ z.option "Densa"
 
 z.operand [[1,2],[3,4]]
 z.operand [[221,2],[3,4]]
-
-
-
-=begin
-require "matrizDispersa"
-require "matrizDensa"
-
-class MatrizDSL
-	
-	
-	attr_accessor :operando, :nombre, :modo, :tipo
-  
-	def initialize(name,&block)
-	  	self.nombre=name    
-	  	self.operando=[]
-	  	self.modo= "consola"
-  	end
-  	
-  	def operand(matriz)
-  		self.operando << MatrizDensa.new(matriz)
-  	end 
-
-  	def to_s
-     		console = nombre
-          	console << " = " 
-          	console << (operando[0] + operando[1]).to_s
-          	console
- 	end  
-  
-  	def option(mode)
-  		self.modo << mode
-  	end
-  
-  	   
-  
-end
-
-
-ejemplo = MatrizDSL.new("suma") do 
-	option "densa" 
-	option "console"
-
-	operand [[1,2,3],[4,5,6],[7,8,9]]  
-	operand [[1,1,1],[1,1,1],[1,1,1]]  
-end
-
-puts ejemplo.to_s
-=end
