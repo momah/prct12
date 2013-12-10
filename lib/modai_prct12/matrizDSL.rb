@@ -61,7 +61,7 @@ class MatrizDSL < MatrizAbstracta
 
                         resultado = @matrizA.to_s + "." + @op.to_s + "("  + " " + @matrizB.to_s + ")"
 			resultado = eval(resultado)
-                        puts "Resultado de la operación ( #{@op_texto.to_s} ): #{resultado}"
+                        puts "Resultado de la operación ( " + @op_texto.to_s + " ): #{resultado}"
 
                 end
                 
