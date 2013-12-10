@@ -16,7 +16,7 @@ class MatrizDSL < MatrizAbstracta
 	#== Asignamos la operación 
         def option(operacion)
                 
-                @op_texto = operacion
+                @op_texto = operacion.to_s
                 
 		# Por defecto la operación será la suma
 		case op_texto	
