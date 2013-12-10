@@ -19,7 +19,7 @@ class MatrizDSL < MatrizAbstracta
                 @op_texto = operacion.to_s
                 
 		# Por defecto la operación será la suma
-		case op_texto	
+		case @op_texto	
 
 		when "suma"
 			@op = "+"		
@@ -61,7 +61,7 @@ class MatrizDSL < MatrizAbstracta
 
                         resultado = @matrizA.to_s + "." + @op.to_s + "("  + " " + @matrizB.to_s + ")"
 			resultado = eval(resultado)
-                        puts "Resultado de la operación ( " + @op_texto.to_s + " ): #{resultado}"
+                        puts "Resultado de la operacion ( " + @op_texto.to_s + " ): #{resultado}"
 
                 end
                 
