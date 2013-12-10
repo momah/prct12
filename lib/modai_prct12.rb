@@ -2,6 +2,7 @@ require "./lib/modai_prct12/version"
 require "./lib/modai_prct12/matrizAbstracta.rb"
 require "./lib/modai_prct12/matrizDispersa.rb"
 require "./lib/modai_prct12/matrizDensa.rb"
+require "./lib/modai_prct12/matrizDSL.rb"
 
 # = ejemplo_rdoc.rb
 #
