@@ -76,23 +76,30 @@ class MatrizDSL < MatrizAbstracta
 
 end
 
-# SUMA
+# SUMA DENSA
 x = MatrizDSL.new("suma")
 x.option "Densa"
 
 x.operand [[1,2],[3,4]]
 x.operand [[221,2],[3,4]]
 
-# RESTA
+# RESTA DENSA
 y = MatrizDSL.new("resta")
 y.option "Densa"
 
 y.operand [[1,2],[3,4]]
 y.operand [[221,2],[3,4]]
 
-# PRODUCTO
+# PRODUCTO DENSA
 z = MatrizDSL.new("producto")
 z.option "Densa"
 
 z.operand [[1,2],[3,4]]
 z.operand [[221,2],[3,4]]
+
+# SUMA DISPERSA
+x = MatrizDSL.new("suma")
+x.option "Dispersa"
+
+x.operand [[1,2],[3,4]]
+x.operand [[221,2],[3,4]]
