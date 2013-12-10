@@ -14,9 +14,22 @@ class MatrizDSL < MatrizAbstracta
 	attr_reader :matrizA, :matrizB #:filas, :columnas
 
 	#== Asignamos la operación 
-        def option(op)
+        def option(operacion)
                 
-                @op = op
+                @op_texto = operacion
+                
+		# Por defecto la operación será la suma
+		case op_texto	
+
+		when "suma"
+			@op = "+"		
+		when "resta"
+			@op = "-"
+		when "porducto"
+			@op = "*"
+		else
+			@op = "&"		
+		end      
                 
         end
 
@@ -40,15 +53,15 @@ class MatrizDSL < MatrizAbstracta
 		# Mostramos las matrices
                 if @matA != nil and @matB != nil
 
-			@matrizA = "Matriz" + @claseMatA.to_s << ".new(@matA)"
+			@matrizA = "Matriz" + @claseMatA.to_s + ".new(@matA)"
                         puts "Matriz A: #{@matA}"
 
-                        @matrizB = "Matriz" + @claseMatA.to_s << ".new(@matB)"
+                        @matrizB = "Matriz" + @claseMatA.to_s + ".new(@matB)"
                         puts "Matriz B: #{@matB}"                
 
-                        resultado = @matrizA.to_s << "." << @op.to_s << "("  << " " << @matrizB.to_s << ")"
+                        resultado = @matrizA.to_s + "." + @op.to_s + "("  + " " + @matrizB.to_s + ")"
 			resultado = eval(resultado)
-                        puts "Resultado: #{resultado}"
+                        puts "Resultado de la operación ( #{@op_texto.to_s} ): #{resultado}"
 
                 end
                 
@@ -59,7 +72,7 @@ end
 # SUMA
 z = MatrizDSL.new("Densa","Densa")
 
-z.option "+"
+z.option "suma"
 
 z.operand [[1,2],[3,4]]
 z.operand [[221,2],[3,4]]
@@ -67,7 +80,7 @@ z.operand [[221,2],[3,4]]
 # RESTA
 x = MatrizDSL.new("Densa","Densa")
 
-x.option "-"
+x.option "resta"
 
 x.operand [[1,2],[3,4]]
 x.operand [[221,2],[3,4]]
@@ -75,7 +88,7 @@ x.operand [[221,2],[3,4]]
 # PRODUCTO
 x = MatrizDSL.new("Densa","Densa")
 
-x.option "*"
+x.option "porducto"
 
 x.operand [[1,2],[3,4]]
 x.operand [[221,2],[3,4]]
