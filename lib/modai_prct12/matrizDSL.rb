@@ -110,3 +110,11 @@ y.option "Dispersa"
 
 y.operand [[1,2],[3,4]]
 y.operand [[221,2],[3,4]]
+
+
+# PRODUCTO DISPERSA
+z = MatrizDSL.new("producto")
+z.option "Dispersa"
+
+z.operand [[1,2],[3,4]]
+z.operand [[221,2],[3,4]]
