@@ -64,6 +64,14 @@ z.option "+"
 z.operand [[1,2],[3,4]]
 z.operand [[221,2],[3,4]]
 
+# RESTA
+x = MatrizDSL.new("Densa","Densa")
+
+x.option "-"
+
+x.operand [[1,2],[3,4]]
+x.operand [[221,2],[3,4]]
+
 =begin
 require "matrizDispersa"
 require "matrizDensa"
