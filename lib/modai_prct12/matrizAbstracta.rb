@@ -1,4 +1,3 @@
-
 require './lib/modai_prct12/racional.rb'
 # = ejemplo_rdoc.rb
 #
@@ -17,7 +16,7 @@ require './lib/modai_prct12/racional.rb'
 #
 # - *rdoc*
 
-#= Clase abstracta para herencia común de matrices densa y dispersa
+#Clase abstracta para herencia común de matrices densa y dispersa
 class MatrizAbstracta
 $tope = 9999999999.9
 	# Inicialización
