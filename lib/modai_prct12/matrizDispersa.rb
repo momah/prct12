@@ -1,8 +1,8 @@
-#= La clase de Matriz dispersa,
-#== Una matriz se considerará dispersa si tiene más de un 60% de ceros.
+# La clase de Matriz dispersa,
+# Una matriz se considerará dispersa si tiene más de un 60% de ceros.
 class MatrizDispersa < MatrizAbstracta
 
-	#== Inicialización
+	# Inicialización
         def initialize(matriz)
 
                 @matriz = matriz
@@ -13,7 +13,7 @@ class MatrizDispersa < MatrizAbstracta
 
 	attr_reader :matriz, :filas, :columnas
 
-	#== Convertimos a string
+	# Convertimos a string
 	def to_s
 
                 fil = 0
@@ -49,12 +49,12 @@ class MatrizDispersa < MatrizAbstracta
 
 	end
 
-	#==  Matriz en punto flotante
+	#  Matriz en punto flotante
 	def to_f
 
                 flotante = Array.new(matriz.size - 1)
                 for i in 0...matriz.size
-			#=== Hay datos en la fila
+			# Hay datos en la fila
                         if matriz[i] != nil
 				
                         	flotante[i] = Hash.new()
@@ -69,7 +69,7 @@ class MatrizDispersa < MatrizAbstracta
 
 	end
 
-	#== Suma de matrices
+	# Suma de matrices
 	def +(o)
 
                 suma = Array.new(matriz.size - 1)
@@ -77,17 +77,17 @@ class MatrizDispersa < MatrizAbstracta
 		i = 0
                 (matriz.size - 1).times do
                       
-			#=== creamos el hash
+			# creamos el hash
 			if (matriz[i] != nil or o.matriz[i] != nil)
 
 				suma[i] = Hash.new()
 		
 				case true
 
-					#=== Los dos tienen hash
+					# Los dos tienen hash
 					when (matriz[i] != nil and o.matriz[i] != nil)
 				
-						#=== cogemos matriz como base para la suma
+						# cogemos matriz como base para la suma
 						suma[i] = matriz[i]
 
 						o.matriz[i].each do |key, value|
@@ -100,11 +100,11 @@ class MatrizDispersa < MatrizAbstracta
 
                                 		end
 
-					#=== matriz tiene hash
+					# matriz tiene hash
 					when matriz[i] != nil
 						suma[i] = matriz[i]						
 	
-					#=== .. o hash
+					# .. o hash
 					when o.matriz[i] != nil
 						suma[i] = o.matriz[i]
 
@@ -120,7 +120,7 @@ class MatrizDispersa < MatrizAbstracta
 
 	end
 
-	#== Resta de matrices
+	# Resta de matrices
 	def -(o)
 
                 resta = Array.new(matriz.size - 1)
@@ -128,17 +128,17 @@ class MatrizDispersa < MatrizAbstracta
 		i = 0
                 (matriz.size - 1).times do
 
-                        #=== creamos el hash
+                        # creamos el hash
                         if (matriz[i] != nil or o.matriz[i] != nil)
 
                                 resta[i] = Hash.new()
                                         
                                 case true
 
-                                        #=== Los dos tienen hash
+                                        # Los dos tienen hash
                                         when (matriz[i] != nil and o.matriz[i] != nil)
                                 
-                                                #=== cogemos matriz como base para la resta
+                                                # cogemos matriz como base para la resta
                                                 resta[i] = matriz[i]
 
                                                 o.matriz[i].each do |key, value|
@@ -151,11 +151,11 @@ class MatrizDispersa < MatrizAbstracta
 
                                                 end
 
-                                        #=== matriz tiene hash
+                                        # matriz tiene hash
                                         when matriz[i] != nil
                                                 resta[i] = matriz[i]                                             
         
-                                        #===... o hash
+                                        #... o hash
                                         when o.matriz[i] != nil
 						resta[i] = o.matriz[i]
 						resta[i].each do |key, value|
@@ -174,7 +174,7 @@ class MatrizDispersa < MatrizAbstracta
 	end
 
 
-	#== Producto de matrices
+	# Producto de matrices
 	def *(o)
 
                 prod = Array.new(matriz.size - 1)
@@ -182,11 +182,11 @@ class MatrizDispersa < MatrizAbstracta
 		i = 0
                 (0...(matriz.size)).inject {
                       
-			#=== creamos el hash si hay filas en el multiplicador
+			# creamos el hash si hay filas en el multiplicador
 			if (o.matriz[i] != nil)
 				
 				prod[i] = Hash.new()
-				#=== cogemos o como base para el producto
+				# cogemos o como base para el producto
 				prod[i] = o.matriz[i]
 
 				for j in 0...matriz.size
@@ -214,7 +214,7 @@ class MatrizDispersa < MatrizAbstracta
 
 	end
 
-	#== Máximo de matriz
+	# Máximo de matriz
 	def max
 
                 maximo = 0.to_f
@@ -232,7 +232,7 @@ class MatrizDispersa < MatrizAbstracta
 
 	end
 
-	#== Minimo de matriz
+	# Minimo de matriz
 	def min
 
 	        minimo = 0.to_f
@@ -250,7 +250,7 @@ class MatrizDispersa < MatrizAbstracta
 
 	end
 
-	#== Pasamos de Dispersa a Densa
+	# Pasamos de Dispersa a Densa
 	def to_densa
 
 		densa = Array.new(matriz.size - 1)
@@ -272,7 +272,7 @@ class MatrizDispersa < MatrizAbstracta
 
 	end
 
-	#== El metodo coerce para onvierte el valor especificado en el tipo especificado.
+	# El metodo coerce para onvierte el valor especificado en el tipo especificado.
 	def coerce(other)
 		return self, other.to_densa
  	end
