@@ -1,14 +1,14 @@
-#= Clase de Matriz densa
+# Clase Matriz densa
 class MatrizDensa < MatrizAbstracta
 
-	#== Inicialización
+	# Inicialización
 	def initialize(matriz)
 		super
 	end
 
 	attr_reader :matriz, :filas, :columnas
 
-	#== Convertimos a string
+	# Convertimos a string
 	def to_s
 
 		fil = 0
@@ -32,7 +32,7 @@ class MatrizDensa < MatrizAbstracta
 
 	end
 
-	#==  Matriz en punto flotante
+	#  Matriz en punto flotante
 	def to_f
 
                 flotante = Array.new(matriz.size - 1)
@@ -46,7 +46,7 @@ class MatrizDensa < MatrizAbstracta
 
 	end
 
-	#== Suma de matrices
+	# Suma de matrices
 	def +(o)
 	
 		if o.instance_of? MatrizDispersa
@@ -60,7 +60,7 @@ class MatrizDensa < MatrizAbstracta
 		0.upto(matriz.size - 1) do |i|
 		   	suma[i] = Array.new(matriz[i].size - 1)
 
-#			0.upto(matriz[i].size - 1) do |j|
+
 			
 			j = 0
 			(0...(matriz[i].size)).collect {
@@ -70,14 +70,14 @@ class MatrizDensa < MatrizAbstracta
 
 			}
 
-#			end
+
 
 		end
 		MatrizDensa.new(suma)
 
 	end
 
-        #== Suma de matrices densa con dispersa (sobreescribimos el operador / como prueba)
+        # Suma de matrices densa con dispersa (sobreescribimos el operador / como prueba)
         def /(o)
 
                 suma = Array.new(matriz.size - 1)
@@ -106,7 +106,7 @@ class MatrizDensa < MatrizAbstracta
         end
 
 
-	#== Resta de matrices
+	# Resta de matrices
 	def -(o)
 
                 resta = Array.new(matriz.size - 1)
@@ -122,7 +122,7 @@ class MatrizDensa < MatrizAbstracta
 
 	end
 
-	#== Multiplicación de matrices
+	# Multiplicación de matrices
 	def *(o)
 
 		prod = Array.new(matriz.size - 1,0)
@@ -146,7 +146,7 @@ class MatrizDensa < MatrizAbstracta
 
 	end
 
-	#== Máximo de matriz
+	# Máximo de matriz
 	def max
 
 		maximo = 0.to_f
@@ -161,7 +161,7 @@ class MatrizDensa < MatrizAbstracta
 
 	end
 
-	#== Minimo de matriz
+	# Minimo de matriz
 	def min
 
 		minimo = $tope
@@ -176,7 +176,7 @@ class MatrizDensa < MatrizAbstracta
 
 	end
 
-        #== Pasamos de Dispersa a Densa
+        # Pasamos de Dispersa a Densa
         def to_densa(o)
 
                 densa = Array.new(o.matriz.size - 1)
@@ -198,13 +198,13 @@ class MatrizDensa < MatrizAbstracta
 
         end
 
-	#== El metodo coerce para onvierte el valor especificado en el tipo especificado.
+	# El metodo coerce para onvierte el valor especificado en el tipo especificado.
 	def coerce(other)
 		return self, other
  	end
 
 
-	#== Devolvemos la posición del primer elemento cuyo cuadrado es mayor a 6
+	# Devolvemos la posición del primer elemento cuyo cuadrado es mayor a 6
 	def encontrar	
 	
 		valor = "["
