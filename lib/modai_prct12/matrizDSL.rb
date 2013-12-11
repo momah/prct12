@@ -1,7 +1,7 @@
-#= Clase de Matriz DSL
+# Clase de Matriz DSL
 class MatrizDSL < MatrizAbstracta
 
-	#== Inicialización
+	# Inicialización
 	def initialize(operacion)
 
                 @op_texto = operacion.to_s
@@ -26,14 +26,14 @@ class MatrizDSL < MatrizAbstracta
 
 	attr_reader :matrizA, :matrizB
 
-	#== Asignamos la opción de matriz 
+	# Asignamos la opción de matriz 
         def option(opc)
                 
 		@claseMat = opc
                 
         end
 
-	#== Definimos el operando
+	# Definimos el operando
 	def operand(other)
                 
 		                
@@ -47,7 +47,7 @@ class MatrizDSL < MatrizAbstracta
                 
         end
 	
-	#== Definimos la función de ejecución de la operación
+	# Definimos la función de ejecución de la operación
         def execute
                 
                 # Comprobamos la validez de la operación
@@ -68,7 +68,7 @@ class MatrizDSL < MatrizAbstracta
                         resultado = @matrizA.to_s + "." + @op.to_s + "("  + " " + @matrizB.to_s + ")"
 			puts "Resultado de la operacion ( " + @op_texto.to_s + " ): "                        
 			resultado = eval(resultado)
-#                        puts "Resultado de la operacion ( " + @op_texto.to_s + " ): #{resultado}"
+
 
                 end
                 
